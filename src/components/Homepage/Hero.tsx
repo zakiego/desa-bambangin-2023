@@ -10,7 +10,7 @@ const navigation = [
   { name: "Company", href: "#" },
 ];
 
-import HeroImage from "~/public/images/DSC04208.jpg";
+import HeroImage from "~/public/images/hero.jpg";
 
 interface HeroProps {
   title: string;
