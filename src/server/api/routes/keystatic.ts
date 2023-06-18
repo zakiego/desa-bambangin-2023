@@ -9,7 +9,7 @@ export const keystaticRouter = createTRPCRouter({
 
     const schema = z.object({
       title: z.string(),
-      content: z.any(),
+      subtitle: z.string(),
     });
 
     const render = homepage;

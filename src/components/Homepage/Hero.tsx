@@ -1,5 +1,5 @@
 import { Dialog } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { Bars3Icon, MapPinIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import { type FC, useState } from "react";
 
@@ -17,6 +17,8 @@ interface HeroProps {
   subtitle: string;
 }
 
+import { HiMapPin } from "react-icons/hi2";
+
 export const Hero: FC<HeroProps> = ({ title, subtitle }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -29,7 +31,7 @@ export const Hero: FC<HeroProps> = ({ title, subtitle }) => {
         >
           <div className="flex lg:flex-1">
             <a href="#" className="-m-1.5 p-1.5">
-              <h1 className="font-semibold">{title}</h1>
+              <h1 className="font-semibold text-white">{title}</h1>
             </a>
           </div>
           <div className="flex lg:hidden">
@@ -115,7 +117,7 @@ export const Hero: FC<HeroProps> = ({ title, subtitle }) => {
       <div className="relative isolate overflow-hidden pt-14 bg-gradient-to-b from-gray-800 to-gray-900">
         <Image
           src={HeroImage}
-          alt="Desa Bambanging"
+          alt={title}
           className="absolute inset-0 -z-10 h-full w-full object-cover mix-blend-soft-light"
         />
 
@@ -148,10 +150,13 @@ export const Hero: FC<HeroProps> = ({ title, subtitle }) => {
             <p className="mt-6 text-lg leading-8 text-gray-300">{subtitle}</p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <a
-                href="#"
-                className="rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
+                href="https://goo.gl/maps/rN1xQHpXef5VNsaN7"
+                className="flex items-center rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                Get started
+                <MapPinIcon className="h-5 w-5 mr-1" aria-hidden="true" />
+                Google Maps
               </a>
               <a
                 href="#"
