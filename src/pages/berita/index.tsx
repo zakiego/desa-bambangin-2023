@@ -1,11 +1,10 @@
-import { type GetStaticProps } from "next";
+import { type GetServerSideProps } from "next";
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   return {
-    props: {},
     redirect: {
       destination: "/berita/page/1",
-      permanent: false,
+      permanent: true,
     },
   };
 };
