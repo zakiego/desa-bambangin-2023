@@ -56,7 +56,7 @@ export const singletonsRouter = createTRPCRouter({
         slug,
       };
 
-      const data = keystaticSchema.singletons.berita.parse(render);
+      const data = keystaticSchema.collections.beritaWithSlug.parse(render);
 
       return data;
     });

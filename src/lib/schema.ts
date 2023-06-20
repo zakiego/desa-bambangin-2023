@@ -1,8 +1,17 @@
 import { z } from "zod";
 
 export const keystaticSchema = {
-  singletons: {
+  singletons: {},
+  collections: {
     berita: z.object({
+      title: z.string(),
+      image: z.string(),
+      datePublished: z.string(),
+      summary: z.string(),
+      content: z.any(),
+      id: z.string(),
+    }),
+    beritaWithSlug: z.object({
       title: z.string(),
       image: z.string(),
       datePublished: z.string(),
@@ -12,5 +21,4 @@ export const keystaticSchema = {
       slug: z.string(),
     }),
   },
-  collections: {},
 };

@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { keystaticSchema } from "~/src/lib/schema";
 
 import { createTRPCRouter, publicProcedure } from "~/src/server/api/trpc";
 import { keystaticReader } from "~/src/utils/reader";
@@ -37,20 +38,34 @@ export const collectionRouter = createTRPCRouter({
     return data;
   }),
 
-  // highlights: publicProcedure.query(async () => {
-  //   const highlights = await keystaticReader.collections.highlights.read();
+  beritaAllSlug: publicProcedure.query(async () => {
+    const list = await keystaticReader.collections.berita.list();
 
-  //   const schema = z.array(
-  //     z.object({
-  //       title: z.string(),
-  //       content: z.any(),
-  //     }),
-  //   );
+    const schema = z.array(z.string());
 
-  //   const render = await highlights?.content();
+    const data = schema.parse(list);
 
-  //   const data = schema.parse(render);
+    return data;
+  }),
 
-  //   return data;
-  // }),
+  beritaBySlug: publicProcedure
+    .input(
+      z.object({
+        slug: z.string(),
+      }),
+    )
+    .query(async ({ input }) => {
+      const { slug } = input;
+
+      const raw = await keystaticReader.collections.berita.read(slug);
+
+      const render = {
+        ...raw,
+        content: await raw?.content(),
+      };
+
+      const data = keystaticSchema.collections.berita.parse(render);
+
+      return data;
+    }),
 });

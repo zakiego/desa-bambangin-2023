@@ -1,7 +1,7 @@
 import { type InferGetStaticPropsType } from "next";
 
 import { Hero, News, Profile } from "~/src/components/Homepage";
-import { Footer } from "~/src/components/UI";
+import { Footer, Navbar } from "~/src/components/UI";
 import { trpSSR } from "~/src/server/api/root";
 
 export const getStaticProps = async () => {
@@ -21,8 +21,8 @@ export const getStaticProps = async () => {
 const Page = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <main>
+      <Navbar />
       <Hero title={props.homepage.title} subtitle={props.homepage.subtitle} />
-
       <News data={props.hightlights} />
       <Profile title={props.profile.title} content={props.profile.content} />
       <Footer />
