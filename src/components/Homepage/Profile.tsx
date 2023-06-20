@@ -1,7 +1,6 @@
-import { type FC } from "react";
-
-import { DocumentRenderer } from "@keystatic/core/renderer";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
+import { DocumentRenderer } from "@keystatic/core/renderer";
+import { type FC } from "react";
 
 interface Props {
   title: string;

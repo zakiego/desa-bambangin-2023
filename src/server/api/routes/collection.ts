@@ -1,6 +1,6 @@
 import { z } from "zod";
-import { keystaticSchema } from "~/src/lib/schema";
 
+import { keystaticSchema } from "~/src/lib/schema";
 import { createTRPCRouter, publicProcedure } from "~/src/server/api/trpc";
 import { keystaticReader } from "~/src/utils/reader";
 

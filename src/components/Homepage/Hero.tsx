@@ -1,14 +1,6 @@
-import { Dialog } from "@headlessui/react";
-import { Bars3Icon, MapPinIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import { MapPinIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
-import { type FC, useState } from "react";
-
-const navigation = [
-  { name: "Product", href: "#" },
-  { name: "Features", href: "#" },
-  { name: "Marketplace", href: "#" },
-  { name: "Company", href: "#" },
-];
+import { type FC } from "react";
 
 import HeroImage from "~/public/images/hero.jpg";
 
@@ -18,8 +10,6 @@ interface HeroProps {
 }
 
 export const Hero: FC<HeroProps> = ({ title, subtitle }) => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
   return (
     <div className="bg-gray-900">
       <div className="relative isolate overflow-hidden pt-14 bg-gradient-to-b from-gray-800 to-gray-900">
