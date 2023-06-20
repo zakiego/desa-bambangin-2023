@@ -5,6 +5,7 @@ import { type FC } from "react";
 import { type z } from "zod";
 
 import { type keystaticSchema } from "~/src/lib/schema";
+import { formatDateKeystatic } from "~/src/utils/date";
 
 interface Props {
   data: z.infer<(typeof keystaticSchema)["collections"]["beritaPagination"]>;
@@ -43,17 +44,7 @@ export const ListNews: FC<Props> = (props) => {
                       dateTime={post.entry.datePublished}
                       className="text-gray-500"
                     >
-                      {format(
-                        parse(
-                          post.entry.datePublished,
-                          "yyyy-MM-dd",
-                          new Date(),
-                        ),
-                        "eeee, d MMMM yyyy",
-                        {
-                          locale: id,
-                        },
-                      )}
+                      {formatDateKeystatic(post.entry.datePublished)}
                     </time>
                   </div>
                   <div className="group relative max-w-xl">
