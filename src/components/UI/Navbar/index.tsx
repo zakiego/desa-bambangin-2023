@@ -7,7 +7,7 @@ import { VILLAGE_NAME } from "~/src/lib/const";
 
 const navigation = [
   { name: "Beranda", href: "/" },
-  { name: "Berita", href: "#" },
+  { name: "Berita", href: "/berita" },
   { name: "Profil Desa", href: "#" },
 ];
 

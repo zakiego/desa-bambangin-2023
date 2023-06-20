@@ -3,9 +3,6 @@ import Link from "next/link";
 import { type FC } from "react";
 
 interface Props {
-  title: string;
-  slug: string;
-  back: string;
   breadcrumb: Array<{
     title: string;
     href: string;

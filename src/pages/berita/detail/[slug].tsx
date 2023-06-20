@@ -39,9 +39,6 @@ const Page = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
       <div className="bg-white px-6 py-24 lg:px-8">
         <div className="mx-auto max-w-3xl text-base leading-7 text-gray-700">
           <BreadCrumb
-            title={props.berita.title}
-            slug={props.slug}
-            back="/berita"
             breadcrumb={[
               {
                 title: "Beranda",
@@ -49,11 +46,11 @@ const Page = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
               },
               {
                 title: "Berita",
-                href: "/berita",
+                href: "/berita/page",
               },
               {
                 title: props.berita.title,
-                href: `/berita/${props.slug}`,
+                href: `/berita/detail/${props.slug}`,
               },
             ]}
           />

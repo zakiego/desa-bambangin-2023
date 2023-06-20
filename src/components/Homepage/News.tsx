@@ -54,7 +54,7 @@ export const News: FC<Props> = ({ data }) => {
                 </div>
                 <div className="group relative">
                   <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
-                    <a href={`/berita/${post.slug}`}>
+                    <a href={`/berita/detail/${post.slug}`}>
                       <span className="absolute inset-0" />
                       {post.title}
                     </a>
