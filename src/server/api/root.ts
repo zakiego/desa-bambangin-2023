@@ -1,7 +1,8 @@
 import { type inferRouterOutputs } from "@trpc/server";
 
+import { collectionRouter } from "~/src/server/api/routes/collection";
 import { exampleRouter } from "~/src/server/api/routes/example";
-import { keystaticRouter } from "~/src/server/api/routes/keystatic";
+import { singletonsRouter } from "~/src/server/api/routes/singletons";
 import { createTRPCRouter } from "~/src/server/api/trpc";
 
 /**
@@ -11,7 +12,8 @@ import { createTRPCRouter } from "~/src/server/api/trpc";
  */
 export const appRouter = createTRPCRouter({
   example: exampleRouter,
-  keystatic: keystaticRouter,
+  singleton: singletonsRouter,
+  collection: collectionRouter,
 });
 
 // export type definition of API

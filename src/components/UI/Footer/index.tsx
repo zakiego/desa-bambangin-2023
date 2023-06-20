@@ -1,3 +1,5 @@
+import { VILLAGE_LOCATION, VILLAGE_NAME } from "~/src/lib/const";
+
 const navigation = {
   solutions: [
     { name: "Marketing", href: "#" },
@@ -98,11 +100,10 @@ export const Footer = () => {
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="space-y-8">
             <text className="text-white font-semibold text-3xl">
-              Desa Bambangin
+              {VILLAGE_NAME}
             </text>
             <p className="text-sm leading-6 text-gray-300">
-              Desa Bambangin, Kecamatan Belawang, Kabupaten Barito Kuala,
-              Provinsi Kalimantan Selatan
+              {VILLAGE_LOCATION}
             </p>
             <div className="flex space-x-6">
               {navigation.social.map((item) => (
