@@ -1,6 +1,7 @@
 import { DocumentRenderer } from "@keystatic/core/renderer";
 import { type GetStaticProps, type InferGetStaticPropsType } from "next";
 import Image from "next/image";
+import { ContainerContent } from "~/src/components/Layout";
 
 import { BreadCrumb, Footer, Navbar } from "~/src/components/UI";
 import { trpSSR } from "~/src/server/api/root";
@@ -37,7 +38,11 @@ const Page = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
     <main>
       <Navbar />
 
-      <div className="bg-white px-6 py-24 lg:px-8">
+      <ContainerContent
+        className="bg-white py-24"
+        title={`${props.berita.title} | Berita`}
+        styles
+      >
         <div className="mx-auto max-w-3xl text-base leading-7 text-gray-700">
           <BreadCrumb
             breadcrumb={[
@@ -76,7 +81,7 @@ const Page = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
             <DocumentRenderer document={props.berita.content} />
           </div>
         </div>
-      </div>
+      </ContainerContent>
 
       <Footer />
     </main>
