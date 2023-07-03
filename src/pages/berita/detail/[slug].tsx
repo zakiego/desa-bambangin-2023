@@ -1,8 +1,8 @@
 import { DocumentRenderer } from "@keystatic/core/renderer";
 import { type GetStaticProps, type InferGetStaticPropsType } from "next";
 import Image from "next/image";
-import { ContainerContent } from "~/src/components/Layout";
 
+import { ContainerContent } from "~/src/components/Layout";
 import { BreadCrumb, Footer, Navbar } from "~/src/components/UI";
 import { trpSSR } from "~/src/server/api/root";
 import { formatDateKeystatic } from "~/src/utils/date";

@@ -1,0 +1,56 @@
+{
+  "heading": "Berkenalan dengan Tim yang Menakjubkan",
+  "subheading": "Kami adalah sekumpulan manusia yang memiliki tujuan yang sama untuk memberikan kebermanfaatan.",
+  "people": [
+    {
+      "name": "Muhammad Huda Inayaturrahman",
+      "role": "Head of Everything",
+      "image": "/images/content/kkn-team/people/0/image.jpeg",
+      "bio": "Ciptakan jejak positif: menginspirasi, membahagiakan, membawa perubahan",
+      "instagram": "hdrhmnn"
+    },
+    {
+      "name": "M. Zakiyuddin Munziri",
+      "role": "Chief Technology Officer",
+      "image": "/images/content/kkn-team/people/1/image.jpeg",
+      "bio": "Hidup sekali, buat menjadi berarti",
+      "twitter": "zakiego",
+      "linkedin": "mzakiyuddin"
+    },
+    {
+      "name": "Ahmad Riduan",
+      "role": "Head of Field Programs",
+      "image": "/images/content/kkn-team/people/2/image.jpeg",
+      "bio": "Beginilah hidup kadang di bawah, kadang di bawah banget",
+      "instagram": "riduan049"
+    },
+    {
+      "name": "Dewi Nuraini",
+      "role": "Public Relations Officer",
+      "image": "/images/content/kkn-team/people/3/image.jpeg",
+      "bio": "Hidup adalah pilihan, kalau ga memilih itu golput namanya",
+      "instagram": "dwwnnra",
+      "twitter": "measapricity",
+      "linkedin": "dewi-nuraini-392605218"
+    },
+    {
+      "name": "Nor Aziziah",
+      "role": "Head of Kitchen",
+      "image": "/images/content/kkn-team/people/4/image.jpeg",
+      "bio": "Memasak adalah salah satu hadiah indah yang bisa kamu berikan kepada orang yang kamu cintai",
+      "instagram": "aziziah_26"
+    },
+    {
+      "name": "Siti Noor Ariani",
+      "role": "Head of Administrative",
+      "image": "/images/content/kkn-team/people/5/image.jpeg",
+      "bio": "-"
+    },
+    {
+      "name": "Nurul Khairin Fadiya",
+      "role": "Chief Financial Officer",
+      "image": "/images/content/kkn-team/people/6/image.jpeg",
+      "bio": "-"
+    }
+  ]
+}

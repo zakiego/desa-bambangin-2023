@@ -1,0 +1,66 @@
+{
+  "hero": {
+    "heading": "KKN Sosiologi Kelompok 9",
+    "subheading": "Kami adalah kelompok KKN Sosiologi Universitas Lambung Mangkurat tahun 2022, terdiri dari 7 orang yang luar biasa. Mengabdikan diri kepada masyarakat Desa Bambangin, kami berkomitmen untuk memberikan manfaat nyata dan menciptakan perubahan positif yang berarti dalam kehidupan bersama.",
+    "images": [
+      "/images/content/kkn-page/hero/hero/images/0.jpg",
+      "/images/content/kkn-page/hero/hero/images/1.jpg",
+      "/images/content/kkn-page/hero/hero/images/2.jpg",
+      "/images/content/kkn-page/hero/hero/images/3.jpg",
+      "/images/content/kkn-page/hero/hero/images/4.jpg"
+    ]
+  },
+  "mission": {
+    "heading": "Misi Kami",
+    "subheading": "Kami memiliki misi yang kuat untuk memberikan kontribusi yang signifikan bagi masyarakat Desa Bambangin melalui program KKN kami. Dengan tekad yang tinggi, kami bertujuan untuk menciptakan perubahan positif yang berarti dan memberikan manfaat nyata kepada masyarakat."
+  },
+  "values": {
+    "image": "/images/content/kkn-page/values/values/image.jpg",
+    "heading": "Bambangin BARASIH",
+    "subheading": "BARASIH adalah inti dari program KKN kami yang bertujuan untuk membangun bank sampah yang berkelanjutan dan memberikan manfaat maksimal kepada masyarakat Desa Bambangin.",
+    "items": [
+      {
+        "title": "Berdaya",
+        "description": "Memberdayakan masyarakat dalam pengelolaan sampah dengan pengetahuan dan keterampilan yang diberikan."
+      },
+      {
+        "title": "Asri",
+        "description": "Menciptakan lingkungan yang indah melalui kegiatan penghijauan dan perawatan taman."
+      },
+      {
+        "title": "Ramah",
+        "description": "Interaksi yang ramah dengan masyarakat dan memberikan pelayanan yang baik."
+      },
+      {
+        "title": "Alami",
+        "description": "Mengedukasi masyarakat tentang penggunaan bahan alami dan ramah lingkungan."
+      },
+      {
+        "title": "Sehat",
+        "description": "Menjaga kebersihan dan kesehatan dengan pengelolaan sampah yang aman."
+      },
+      {
+        "title": "Inovatif",
+        "description": "Menerapkan solusi kreatif dalam pengelolaan sampah dan kegiatan bank sampah."
+      },
+      {
+        "title": "Harmonis",
+        "description": "Menciptakan harmoni antara masyarakat dan lingkungan melalui kesadaran kolektif."
+      }
+    ]
+  },
+  "stats": [
+    {
+      "label": "Jumlah Penduduk",
+      "value": "870+"
+    },
+    {
+      "label": "Rumah Tangga",
+      "value": "280+"
+    },
+    {
+      "label": "Rukun Tetangga",
+      "value": "5"
+    }
+  ]
+}
