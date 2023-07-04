@@ -1,6 +1,6 @@
 import { type InferGetStaticPropsType } from "next";
 
-import { SimpleLayout } from "~/src/components/Layout/SimpleLayout";
+import { SimpleLayout } from "~/src/components/Layout";
 import { Footer, Navbar } from "~/src/components/UI";
 import { trpSSR } from "~/src/server/api/root";
 
