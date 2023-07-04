@@ -1,4 +1,5 @@
 {
   "typescript.preferences.importModuleSpecifier": "non-relative",
-  "typescript.suggest.autoImports": true
+  "typescript.suggest.autoImports": true,
+  "typescript.tsdk": "node_modules/typescript/lib"
 }
