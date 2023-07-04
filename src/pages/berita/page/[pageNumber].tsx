@@ -8,7 +8,7 @@ import { trpSSR } from "~/src/server/api/root";
 const LIMIT = 4;
 
 export const getStaticPaths = async () => {
-  const { paging } = await trpSSR.collection.beritaPagination({
+  const { paging } = await trpSSR.keystatic.berita.pagination({
     limit: LIMIT,
     page: 1,
   });
@@ -28,7 +28,7 @@ export const getStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (context) => {
   const { pageNumber } = context.params as { pageNumber: string };
 
-  const berita = await trpSSR.collection.beritaPagination({
+  const berita = await trpSSR.keystatic.berita.pagination({
     limit: LIMIT,
     page: parseInt(pageNumber),
   });
