@@ -2,14 +2,14 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
 import Link from "next/link";
 import { type FC } from "react";
 
-interface Props {
+export interface BreadCrumbProps {
   breadcrumb: Array<{
     title: string;
     href: string;
   }>;
 }
 
-export const BreadCrumb: FC<Props> = (props) => {
+export const BreadCrumb: FC<BreadCrumbProps> = (props) => {
   return (
     <div>
       <nav className="sm:hidden" aria-label="Back">
