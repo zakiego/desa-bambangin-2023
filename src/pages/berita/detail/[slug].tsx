@@ -38,7 +38,15 @@ const Page = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
     <main>
       <Navbar />
       <SimpleLayout
-        title={`${props.berita.title} | Berita`}
+        meta={{
+          title: `${props.berita.title} | Berita`,
+        }}
+        article={{
+          title: props.berita.title,
+          image: props.berita.image,
+          date: props.berita.datePublished,
+          content: props.berita.content,
+        }}
         breadcrumb={[
           {
             title: "Beranda",
@@ -53,9 +61,6 @@ const Page = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
             href: `/berita/detail/${props.slug}`,
           },
         ]}
-        image={props.berita.image}
-        date={props.berita.datePublished}
-        content={props.berita.content}
       />
       <Footer />
     </main>

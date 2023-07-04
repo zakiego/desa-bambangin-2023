@@ -10,22 +10,25 @@ import { BreadCrumb, type BreadCrumbProps } from "~/src/components/UI";
 import { formatDateKeystatic } from "~/src/utils/date";
 
 interface Props {
-  title: string;
+  meta: {
+    title: string;
+  };
   breadcrumb: BreadCrumbProps["breadcrumb"];
-  image: string;
-  date: string;
-  content: DocumentRendererProps["document"];
+  article: {
+    title: string;
+    image: string;
+    date: string;
+    content: DocumentRendererProps["document"];
+  };
 }
 
 export const SimpleLayout: FC<Props> = ({
-  title,
+  meta,
   breadcrumb,
-  image,
-  date,
-  content,
+  article: { title, image, date, content },
 }) => {
   return (
-    <ContainerContent className="bg-white py-24" title={title} styles>
+    <ContainerContent className="bg-white py-24" title={meta.title} styles>
       <div className="mx-auto max-w-3xl text-base leading-7 text-gray-700">
         <BreadCrumb breadcrumb={breadcrumb} />
 
