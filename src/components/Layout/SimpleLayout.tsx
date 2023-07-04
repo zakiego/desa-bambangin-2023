@@ -17,7 +17,7 @@ interface Props {
   article: {
     title: string;
     image: string;
-    date: string;
+    date?: string;
     content: DocumentRendererProps["document"];
   };
 }
@@ -46,7 +46,9 @@ export const SimpleLayout: FC<Props> = ({
           {title}
         </h1>
 
-        <p className="pt-3 text-gray-600">{formatDateKeystatic(date)}</p>
+        {date && (
+          <p className="pt-3 text-gray-600">{formatDateKeystatic(date)}</p>
+        )}
 
         <hr className=" my-3" />
 
