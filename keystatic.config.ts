@@ -240,6 +240,10 @@ export default keystaticConfig({
           label: "Content",
           formatting: true,
           links: true,
+          images: {
+            directory: "public/images/content/berita",
+            publicPath: "/images/content/berita",
+          },
         }),
         id: fields.text({
           label: "ID",
@@ -285,6 +289,10 @@ export default keystaticConfig({
           label: "Content",
           formatting: true,
           links: true,
+          images: {
+            directory: "public/images/content/pages",
+            publicPath: "/images/content/pages",
+          },
         }),
         id: fields.text({
           label: "ID",
