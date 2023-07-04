@@ -6,8 +6,8 @@ import { Footer, Navbar } from "~/src/components/UI";
 import { trpSSR } from "~/src/server/api/root";
 
 export const getStaticProps = async () => {
-  const homepage = await trpSSR.singleton.homepage();
-  const hightlights = await trpSSR.singleton.highlights();
+  const homepage = await trpSSR.keystatic.homepage();
+  const hightlights = await trpSSR.keystatic.highlights();
   const profil = await trpSSR.keystatic.pages({
     slug: "profil-desa",
   });

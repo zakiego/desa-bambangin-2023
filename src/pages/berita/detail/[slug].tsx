@@ -8,7 +8,7 @@ import { Footer, Navbar } from "~/src/components/UI";
 import { trpSSR } from "~/src/server/api/root";
 
 export const getStaticPaths = async () => {
-  const listSlug = await trpSSR.collection.beritaAllSlug();
+  const listSlug = await trpSSR.keystatic.berita.getAllSlug();
 
   return {
     paths: listSlug.map((slug) => ({
@@ -23,7 +23,9 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (context: GetServerSidePropsContext) => {
   const { slug } = context.params as { slug: string };
 
-  const berita = await trpSSR.collection.beritaBySlug({ slug });
+  const berita = await trpSSR.keystatic.berita.getDetail({
+    slug,
+  });
 
   return {
     props: {

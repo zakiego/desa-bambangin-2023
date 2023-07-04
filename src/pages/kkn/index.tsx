@@ -29,8 +29,8 @@ const blogPosts = [
 ];
 
 export const getStaticProps = async () => {
-  const team = await trpSSR.keystatic.kknTeam();
-  const page = await trpSSR.keystatic.kknPage();
+  const team = await trpSSR.keystatic.kkn.team();
+  const page = await trpSSR.keystatic.kkn.page();
 
   return {
     props: {

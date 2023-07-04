@@ -6,7 +6,7 @@ import { type keystaticSchema } from "~/src/lib/schema";
 import { formatDateKeystatic } from "~/src/utils/date";
 
 interface Props {
-  data: z.infer<(typeof keystaticSchema)["collections"]["beritaPagination"]>;
+  data: z.infer<(typeof keystaticSchema)["berita"]>[];
 }
 
 export const ListNews: FC<Props> = (props) => {
@@ -23,13 +23,13 @@ export const ListNews: FC<Props> = (props) => {
           <div className="mt-16 space-y-20 lg:mt-20 lg:space-y-20">
             {props.data.map((post) => (
               <article
-                key={post.entry.id}
+                key={post.id}
                 className="relative isolate flex flex-col gap-8 lg:flex-row"
               >
                 <div className="relative aspect-[16/9] sm:aspect-[2/1] lg:aspect-square lg:w-64 lg:shrink-0">
                   <Image
-                    src={post.entry.image}
-                    alt={post.entry.title}
+                    src={post.image}
+                    alt={post.title}
                     height={500}
                     width={500}
                     className="absolute inset-0 h-full w-full rounded-2xl bg-gray-50 object-cover"
@@ -39,21 +39,21 @@ export const ListNews: FC<Props> = (props) => {
                 <div>
                   <div className="flex items-center gap-x-4 text-xs">
                     <time
-                      dateTime={post.entry.datePublished}
+                      dateTime={post.datePublished}
                       className="text-gray-500"
                     >
-                      {formatDateKeystatic(post.entry.datePublished)}
+                      {formatDateKeystatic(post.datePublished)}
                     </time>
                   </div>
                   <div className="group relative max-w-xl">
                     <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
                       <a href={`/berita/detail/${post.slug}`}>
                         <span className="absolute inset-0" />
-                        {post.entry.title}
+                        {post.title}
                       </a>
                     </h3>
                     <p className="mt-5 text-sm leading-7 text-gray-600">
-                      {post.entry.summary}
+                      {post.summary}
                     </p>
                   </div>
                 </div>

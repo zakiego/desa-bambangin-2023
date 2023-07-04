@@ -6,7 +6,7 @@ import { type z } from "zod";
 import { type keystaticSchema } from "~/src/lib/schema";
 
 interface Props {
-  data: z.infer<(typeof keystaticSchema)["kknTeam"]>;
+  data: z.infer<(typeof keystaticSchema)["kkn"]["team"]>;
 }
 
 export const Team: FC<Props> = ({ data }) => {
