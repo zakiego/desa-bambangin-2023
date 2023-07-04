@@ -154,6 +154,7 @@ export const keystaticRouter = createTRPCRouter({
         const render = {
           ...raw,
           content: await raw?.content(),
+          slug,
         };
 
         const data = keystaticSchema.berita.parse(render);
