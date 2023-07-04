@@ -7,14 +7,17 @@ import { trpSSR } from "~/src/server/api/root";
 
 export const getStaticProps = async () => {
   const homepage = await trpSSR.singleton.homepage();
-  const profile = await trpSSR.singleton.profile();
   const hightlights = await trpSSR.singleton.highlights();
+  const profil = await trpSSR.keystatic.pages({
+    slug: "profil-desa",
+  });
 
   return {
     props: {
       homepage,
-      profile,
+
       hightlights,
+      profil,
     },
   };
 };
@@ -26,7 +29,7 @@ const Page = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
       <ContainerContent title="Home | Desa Bambangin 2023">
         <Hero title={props.homepage.title} subtitle={props.homepage.subtitle} />
         <News data={props.hightlights} />
-        <Profile title={props.profile.title} content={props.profile.content} />
+        <Profile title={props.profil.title} content={props.profil.content} />
       </ContainerContent>
       <Footer />
     </main>

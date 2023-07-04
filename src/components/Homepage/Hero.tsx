@@ -1,5 +1,6 @@
 import { MapPinIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
+import Link from "next/link";
 import { type FC } from "react";
 
 import HeroImage from "~/public/images/hero.jpg";
@@ -33,13 +34,13 @@ export const Hero: FC<HeroProps> = ({ title, subtitle }) => {
         </div>
         <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
           <div className="hidden sm:mb-8 sm:flex sm:justify-center">
-            {/* <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-400 ring-1 ring-white/10 hover:ring-white/20">
-              Announcing our next round of funding.{" "}
-              <a href="#" className="font-semibold text-white">
+            <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-400 ring-1 ring-white/10 hover:ring-white/20">
+              KKN Sosiologi 2023 {""}
+              <Link href="/kkn" className="font-semibold text-white">
                 <span className="absolute inset-0" aria-hidden="true" />
-                Read more <span aria-hidden="true">&rarr;</span>
-              </a>
-            </div> */}
+                Lihat Keseruannya <span aria-hidden="true">&rarr;</span>
+              </Link>
+            </div>
           </div>
           <div className="text-center">
             <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
@@ -56,12 +57,12 @@ export const Hero: FC<HeroProps> = ({ title, subtitle }) => {
                 <MapPinIcon className="h-5 w-5 mr-1" aria-hidden="true" />
                 Google Maps
               </a>
-              <a
-                href="#"
+              <Link
+                href="/profil-desa"
                 className="text-sm font-semibold leading-6 text-white"
               >
-                Learn more <span aria-hidden="true">→</span>
-              </a>
+                Baca Profil Desa <span aria-hidden="true">→</span>
+              </Link>
             </div>
           </div>
         </div>

@@ -20,24 +20,6 @@ export const singletonsRouter = createTRPCRouter({
     return data;
   }),
 
-  profile: publicProcedure.query(async () => {
-    const profile = await keystaticReader.singletons.profile.read();
-
-    const schema = z.object({
-      title: z.string(),
-      content: z.any(),
-    });
-
-    const render = {
-      ...profile,
-      content: await profile?.content(),
-    };
-
-    const data = schema.parse(render);
-
-    return data;
-  }),
-
   highlights: publicProcedure.query(async () => {
     const hightlights = await keystaticReader.singletons.hightlights.read();
 

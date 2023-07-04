@@ -28,4 +28,20 @@ export const keystaticRouter = createTRPCRouter({
 
     return parsed;
   }),
+
+  pages: publicProcedure
+    .input(z.object({ slug: z.string() }))
+    .query(async ({ input }) => {
+      const { slug } = input;
+
+      const data = await keystaticReader.collections.pages.readOrThrow(slug);
+
+      const parsed = keystaticSchema.pages.parse({
+        ...data,
+        slug,
+        content: await data.content(),
+      });
+
+      return parsed;
+    }),
 });

@@ -41,26 +41,7 @@ export default keystaticConfig({
         }),
       },
     }),
-    profile: singleton({
-      label: "Profil Desa",
-      path: "src/content/profile",
-      format: "json",
-      schema: {
-        title: fields.text({
-          label: "Title",
-          validation: {
-            length: {
-              min: 1,
-            },
-          },
-        }),
-        content: fields.document({
-          label: "Content",
-          formatting: true,
-          links: true,
-        }),
-      },
-    }),
+
     hightlights: singleton({
       label: "Highlights",
       path: "src/content/highlights/",
@@ -224,6 +205,51 @@ export default keystaticConfig({
     berita: collection({
       label: "Berita",
       path: "src/content/berita/*/",
+      format: "json",
+      slugField: "title",
+      schema: {
+        title: fields.slug({
+          name: {
+            label: "Title",
+          },
+        }),
+        image: fields.image({
+          label: "Image",
+          directory: "public/images/content/berita",
+          publicPath: "/images/content/berita",
+          validation: {
+            isRequired: true,
+          },
+        }),
+        datePublished: fields.date({
+          label: "Date Published",
+          validation: {
+            isRequired: true,
+          },
+        }),
+        summary: fields.text({
+          label: "Summary",
+          multiline: true,
+          validation: {
+            length: {
+              min: 1,
+            },
+          },
+        }),
+        content: fields.document({
+          label: "Content",
+          formatting: true,
+          links: true,
+        }),
+        id: fields.text({
+          label: "ID",
+          defaultValue: uuidv4(),
+        }),
+      },
+    }),
+    pages: collection({
+      label: "Pages",
+      path: "src/content/pages/*/",
       format: "json",
       slugField: "title",
       schema: {
