@@ -5,10 +5,10 @@ import {
 
 import { SimpleLayout } from "~/src/components/Layout";
 import { Footer, Navbar } from "~/src/components/UI";
-import { trpSSR } from "~/src/server/api/root";
+import { trpcSSR } from "~/src/server/api/root";
 
 export const getStaticPaths = async () => {
-  const listSlug = await trpSSR.keystatic.berita.getAllSlug();
+  const listSlug = await trpcSSR.keystatic.berita.getAllSlug();
 
   return {
     paths: listSlug.map((slug) => ({
@@ -23,7 +23,7 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (context: GetServerSidePropsContext) => {
   const { slug } = context.params as { slug: string };
 
-  const berita = await trpSSR.keystatic.berita.getDetail({
+  const berita = await trpcSSR.keystatic.berita.getDetail({
     slug,
   });
 

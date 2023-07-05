@@ -3,12 +3,12 @@ import { type InferGetStaticPropsType } from "next";
 import { Hero, News, Profile } from "~/src/components/Homepage";
 import { ContainerContent } from "~/src/components/Layout";
 import { Footer, Navbar } from "~/src/components/UI";
-import { trpSSR } from "~/src/server/api/root";
+import { trpcSSR } from "~/src/server/api/root";
 
 export const getStaticProps = async () => {
-  const homepage = await trpSSR.keystatic.homepage();
-  const hightlights = await trpSSR.keystatic.highlights();
-  const profil = await trpSSR.keystatic.pages({
+  const homepage = await trpcSSR.keystatic.homepage();
+  const hightlights = await trpcSSR.keystatic.highlights();
+  const profil = await trpcSSR.keystatic.pages({
     slug: "profil-desa",
   });
 

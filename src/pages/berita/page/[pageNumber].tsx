@@ -3,12 +3,12 @@ import { type GetStaticProps, type InferGetStaticPropsType } from "next";
 import { ListNews } from "~/src/components/Berita";
 import { ContainerContent } from "~/src/components/Layout";
 import { BreadCrumb, Footer, Navbar, Pagination } from "~/src/components/UI";
-import { trpSSR } from "~/src/server/api/root";
+import { trpcSSR } from "~/src/server/api/root";
 
 const LIMIT = 4;
 
 export const getStaticPaths = async () => {
-  const { paging } = await trpSSR.keystatic.berita.pagination({
+  const { paging } = await trpcSSR.keystatic.berita.pagination({
     limit: LIMIT,
     page: 1,
   });
@@ -28,7 +28,7 @@ export const getStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (context) => {
   const { pageNumber } = context.params as { pageNumber: string };
 
-  const berita = await trpSSR.keystatic.berita.pagination({
+  const berita = await trpcSSR.keystatic.berita.pagination({
     limit: LIMIT,
     page: parseInt(pageNumber),
   });

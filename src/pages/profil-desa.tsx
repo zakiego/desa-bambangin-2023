@@ -2,10 +2,10 @@ import { type InferGetStaticPropsType } from "next";
 
 import { SimpleLayout } from "~/src/components/Layout";
 import { Footer, Navbar } from "~/src/components/UI";
-import { trpSSR } from "~/src/server/api/root";
+import { trpcSSR } from "~/src/server/api/root";
 
 export const getStaticProps = async () => {
-  const berita = await trpSSR.keystatic.pages({
+  const berita = await trpcSSR.keystatic.pages({
     slug: "profil-desa",
   });
 

@@ -6,7 +6,7 @@ import { type FC } from "react";
 import { Team } from "~/src/components/KKN";
 import { ContainerContent } from "~/src/components/Layout";
 import { Footer, Navbar } from "~/src/components/UI";
-import { trpSSR } from "~/src/server/api/root";
+import { trpcSSR } from "~/src/server/api/root";
 
 const blogPosts = [
   {
@@ -29,8 +29,8 @@ const blogPosts = [
 ];
 
 export const getStaticProps = async () => {
-  const team = await trpSSR.keystatic.kkn.team();
-  const page = await trpSSR.keystatic.kkn.page();
+  const team = await trpcSSR.keystatic.kkn.team();
+  const page = await trpcSSR.keystatic.kkn.page();
 
   return {
     props: {
