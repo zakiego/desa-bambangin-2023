@@ -8,7 +8,7 @@ import { VILLAGE_NAME } from "~/src/lib/const";
 const navigation = [
   { name: "Beranda", href: "/" },
   { name: "Berita", href: "/berita" },
-  { name: "Profil Desa", href: "#" },
+  { name: "Profil Desa", href: "/profil-desa" },
 ];
 
 export const Navbar = () => {
