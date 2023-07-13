@@ -101,7 +101,7 @@ export const keystaticRouter = createTRPCRouter({
             slug,
           };
 
-          const data = keystaticSchema.berita.parse(render);
+          const data = keystaticSchema.kkn.article.parse(render);
 
           return data;
         }),
@@ -128,7 +128,7 @@ export const keystaticRouter = createTRPCRouter({
 
           const waited = await Promise.all(render);
 
-          const data = z.array(keystaticSchema.berita).parse(waited);
+          const data = z.array(keystaticSchema.kkn.article).parse(waited);
 
           const paging = {
             hasNext: page < Math.ceil(data.length / limit),
