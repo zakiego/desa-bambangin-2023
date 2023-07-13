@@ -299,6 +299,10 @@ export default keystaticConfig({
             isRequired: true,
           },
         }),
+        author: fields.relationship({
+          label: "Author",
+          collection: "kknTeam",
+        }),
         datePublished: fields.date({
           label: "Date Published",
           validation: {
