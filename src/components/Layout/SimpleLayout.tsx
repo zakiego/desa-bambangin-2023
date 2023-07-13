@@ -87,7 +87,16 @@ export const SimpleLayout: FC<Props> = ({
         <hr className=" my-3" />
 
         <div className="prose">
-          <DocumentRenderer document={content} />
+          <DocumentRenderer
+            document={content}
+            renderers={{
+              block: {
+                image(props) {
+                  return <img {...props} className="rounded-xl" />;
+                },
+              },
+            }}
+          />
         </div>
       </div>
     </ContainerContent>
