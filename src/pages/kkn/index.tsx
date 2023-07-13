@@ -1,12 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 import { DocumentRenderer } from "@keystatic/core/renderer";
-import { type InferGetStaticPropsType } from "next";
 import { type FC } from "react";
+import Balancer from "react-wrap-balancer";
 
 import { Team } from "~/src/components/KKN";
 import { ContainerContent } from "~/src/components/Layout";
 import { Footer, Navbar } from "~/src/components/UI";
-import { trpcSSR } from "~/src/server/api/root";
+import { trpcSSR, type TRPCTypeOutput } from "~/src/server/api/root";
 
 const blogPosts = [
   {
@@ -40,7 +40,10 @@ export const getStaticProps = async () => {
   };
 };
 
-type Props = InferGetStaticPropsType<typeof getStaticProps>;
+type Props = {
+  team: TRPCTypeOutput["keystatic"]["kkn"]["team"];
+  page: TRPCTypeOutput["keystatic"]["kkn"]["page"];
+};
 
 const Page: FC<Props> = ({ page, team }) => {
   return (
@@ -98,7 +101,7 @@ const Page: FC<Props> = ({ page, team }) => {
                 <div className="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
                   <div className="w-full max-w-xl lg:shrink-0 xl:max-w-2xl">
                     <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-                      {page.hero.heading}
+                      <Balancer>{page.hero.heading}</Balancer>
                     </h1>
                     <p className="relative mt-6 text-lg leading-8 text-gray-600 sm:max-w-md lg:max-w-none">
                       {page.hero.subheading}

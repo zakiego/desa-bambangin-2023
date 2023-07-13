@@ -19,4 +19,4 @@ export type AppRouter = typeof appRouter;
 
 export const trpcSSR = appRouter.createCaller({});
 
-export type OutputTypeTRPC = inferRouterOutputs<AppRouter>;
+export type TRPCTypeOutput = inferRouterOutputs<AppRouter>;
