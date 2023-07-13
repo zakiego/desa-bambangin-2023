@@ -26,7 +26,7 @@ const Page = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <main>
       <Navbar />
-      <ContainerContent title="Home | Desa Bambangin 2023">
+      <ContainerContent title="Home | Desa Bambangin">
         <Hero title={props.homepage.title} subtitle={props.homepage.subtitle} />
         <News data={props.hightlights} />
         <Profile title={props.profil.title} content={props.profil.content} />
