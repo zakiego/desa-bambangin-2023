@@ -51,7 +51,7 @@ export const SimpleLayout: FC<Props> = ({
           {title}
         </h1>
 
-        <div className="flex items-center gap-x-3 pt-5">
+        <div className="flex flex-col md:flex-row md:items-center gap-y-3 md:gap-x-3 md:gap-y-0 pt-5">
           {author && (
             <>
               <div className="flex items-center">
@@ -70,7 +70,7 @@ export const SimpleLayout: FC<Props> = ({
               </div>
               <svg
                 viewBox="0 0 2 2"
-                className="-ml-0.5 h-0.5 w-0.5 flex-none fill-black"
+                className="-ml-0.5 h-0.5 w-0.5 flex-none fill-black hidden md:block"
               >
                 <circle cx={1} cy={1} r={1} />
               </svg>
