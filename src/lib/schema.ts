@@ -82,6 +82,10 @@ export const keystaticSchema = {
       content: z.any(),
       id: z.string(),
       slug: z.string(),
+      author: z.object({
+        name: z.string(),
+        image: z.string(),
+      }),
     }),
   },
 

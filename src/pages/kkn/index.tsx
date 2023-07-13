@@ -264,20 +264,20 @@ const Page: FC<Props> = ({ page, articles }) => {
                       {post.datePublished}
                     </time>
                     <div className="-ml-4 flex items-center gap-x-4">
-                      {/* <svg
+                      <svg
                         viewBox="0 0 2 2"
                         className="-ml-0.5 h-0.5 w-0.5 flex-none fill-white/50"
                       >
                         <circle cx={1} cy={1} r={1} />
-                      </svg> */}
-                      {/* <div className="flex gap-x-2.5">
+                      </svg>
+                      <div className="flex gap-x-2.5">
                         <img
-                          src={post.author.imageUrl}
-                          alt=""
-                          className="h-6 w-6 flex-none rounded-full bg-white/10"
+                          src={post.author.image}
+                          alt={post.author.name}
+                          className="h-6 w-6 flex-none rounded-full bg-white/10 object-cover"
                         />
                         {post.author.name}
-                      </div> */}
+                      </div>
                     </div>
                   </div>
                   <h3 className="mt-3 text-lg font-semibold leading-6 text-white">

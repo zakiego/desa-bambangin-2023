@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import {
   DocumentRenderer,
   type DocumentRendererProps,
@@ -19,13 +20,17 @@ interface Props {
     image: string;
     date?: string;
     content: DocumentRendererProps["document"];
+    author?: {
+      name: string;
+      image: string;
+    };
   };
 }
 
 export const SimpleLayout: FC<Props> = ({
   meta,
   breadcrumb,
-  article: { title, image, date, content },
+  article: { title, image, date, content, author },
 }) => {
   return (
     <ContainerContent className="bg-white py-24" title={meta.title} styles>
@@ -46,9 +51,38 @@ export const SimpleLayout: FC<Props> = ({
           {title}
         </h1>
 
-        {date && (
-          <p className="pt-3 text-gray-600">{formatDateKeystatic(date)}</p>
-        )}
+        <div className="flex items-center gap-x-3 pt-5">
+          {author && (
+            <>
+              <div className="flex items-center">
+                <div className="flex-shrink-0">
+                  <img
+                    src={author.image}
+                    alt={author.name}
+                    className="rounded-full h-8 w-8 object-cover"
+                  />
+                </div>
+                <div className="ml-3">
+                  <p className="text-md font-medium text-gray-600">
+                    {author.name}
+                  </p>
+                </div>
+              </div>
+              <svg
+                viewBox="0 0 2 2"
+                className="-ml-0.5 h-0.5 w-0.5 flex-none fill-black"
+              >
+                <circle cx={1} cy={1} r={1} />
+              </svg>
+            </>
+          )}
+
+          {date && (
+            <p className="items-center text-gray-600">
+              {formatDateKeystatic(date)}
+            </p>
+          )}
+        </div>
 
         <hr className=" my-3" />
 

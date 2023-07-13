@@ -50,6 +50,10 @@ const Page = (props: Props) => {
           image: props.berita.image,
           date: props.berita.datePublished,
           content: props.berita.content,
+          author: {
+            name: props.berita.author.name,
+            image: props.berita.author.image,
+          },
         }}
         breadcrumb={[
           {

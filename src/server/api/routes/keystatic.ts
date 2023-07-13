@@ -99,10 +99,15 @@ export const keystaticRouter = createTRPCRouter({
 
           const raw = await keystaticReader.collections.kknArticles.read(slug);
 
+          const author = await keystaticReader.collections.kknTeam.read(
+            raw?.author as string,
+          );
+
           const render = {
             ...raw,
             content: await raw?.content(),
             slug,
+            author,
           };
 
           const data = keystaticSchema.kkn.article.parse(render);
@@ -123,10 +128,15 @@ export const keystaticRouter = createTRPCRouter({
           const raw = await keystaticReader.collections.kknArticles.all();
 
           const render = raw.map(async (item) => {
+            const author = await keystaticReader.collections.kknTeam.read(
+              item.entry.author as string,
+            );
+
             return {
               ...item.entry,
               content: await item.entry.content(),
               slug: item.slug,
+              author,
             };
           });
 
