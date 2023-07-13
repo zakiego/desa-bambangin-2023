@@ -211,6 +211,18 @@ export default keystaticConfig({
             label: "Blog Subheading",
           }),
         }),
+        team: fields.array(
+          fields.relationship({
+            label: "Team",
+            collection: "kknTeam",
+          }),
+          {
+            itemLabel(props) {
+              return props.value as string;
+            },
+            label: "Team",
+          },
+        ),
       },
     }),
   },

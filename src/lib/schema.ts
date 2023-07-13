@@ -17,6 +17,15 @@ export const keystaticSchema = {
         }),
       ),
     }),
+    teamCollection: z.object({
+      name: z.string(),
+      role: z.string(),
+      image: z.string(),
+      instagram: z.string().nullish(),
+      twitter: z.string().nullish(),
+      linkedin: z.string().nullish(),
+      bio: z.string(),
+    }),
     page: z.object({
       hero: z.object({
         heading: z.string(),
@@ -49,6 +58,17 @@ export const keystaticSchema = {
         heading: z.string(),
         subheading: z.string(),
       }),
+      team: z.array(
+        z.object({
+          name: z.string(),
+          role: z.string(),
+          image: z.string(),
+          instagram: z.string().nullish(),
+          twitter: z.string().nullish(),
+          linkedin: z.string().nullish(),
+          bio: z.string(),
+        }),
+      ),
     }),
     article: z.object({
       title: z.string(),

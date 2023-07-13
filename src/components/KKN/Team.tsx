@@ -6,26 +6,24 @@ import { type z } from "zod";
 import { type keystaticSchema } from "~/src/lib/schema";
 
 interface Props {
-  data: z.infer<(typeof keystaticSchema)["kkn"]["team"]>;
+  team: z.infer<(typeof keystaticSchema)["kkn"]["teamCollection"]>[];
 }
 
-export const Team: FC<Props> = ({ data }) => {
+export const Team: FC<Props> = ({ team }) => {
   return (
     <div className="mx-auto max-w-7xl px-6 sm:mt-0 lg:px-8 ">
       <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
         <div className="max-w-3xl xl:col-span-2">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            {data.heading}
+            Heading
           </h2>
-          <p className="mt-6 text-lg leading-8 text-gray-600">
-            {data.subheading}
-          </p>
+          <p className="mt-6 text-lg leading-8 text-gray-600">Subheading</p>
         </div>
         <ul
           role="list"
           className="mt-4 divide-y xl:divide-none divide-gray-200 grid grid-cols-1 gap-y-12 xl:grid-cols-2 gap-x-10"
         >
-          {data.people.slice(0, data.people.length).map((person) => (
+          {team.map((person) => (
             <li
               key={person.name}
               className="flex flex-col gap-10 pt-12 md:flex-row"
