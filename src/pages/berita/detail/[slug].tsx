@@ -41,7 +41,9 @@ const Page = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
       <Navbar />
       <SimpleLayout
         meta={{
-          title: `${props.berita.title} | Berita`,
+          title: `${props.berita.title} | Berita Desa Bambangin`,
+          description: props.berita.summary,
+          image: props.berita.image,
         }}
         article={{
           title: props.berita.title,
