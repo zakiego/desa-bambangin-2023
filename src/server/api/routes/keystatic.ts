@@ -60,7 +60,7 @@ export const keystaticRouter = createTRPCRouter({
     page: publicProcedure.query(async () => {
       const data = await keystaticReader.singletons.kknPage.readOrThrow();
 
-      const team = data.team.map(async (item) => {
+      const teamPeople = data.teamPeople.map(async (item) => {
         if (item === null) {
           return null;
         }
@@ -77,7 +77,7 @@ export const keystaticRouter = createTRPCRouter({
           ...data.mission,
           content: await data.mission.content(),
         },
-        team: await Promise.all(team),
+        teamPeople: await Promise.all(teamPeople),
       };
 
       const parsed = keystaticSchema.kkn.page.parse(render);

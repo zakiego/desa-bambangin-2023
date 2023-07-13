@@ -211,7 +211,15 @@ export default keystaticConfig({
             label: "Blog Subheading",
           }),
         }),
-        team: fields.array(
+        team: fields.object({
+          heading: fields.text({
+            label: "Team Heading",
+          }),
+          subheading: fields.text({
+            label: "Team Subheading",
+          }),
+        }),
+        teamPeople: fields.array(
           fields.relationship({
             label: "Team",
             collection: "kknTeam",

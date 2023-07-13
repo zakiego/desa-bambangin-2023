@@ -58,7 +58,11 @@ export const keystaticSchema = {
         heading: z.string(),
         subheading: z.string(),
       }),
-      team: z.array(
+      team: z.object({
+        heading: z.string(),
+        subheading: z.string(),
+      }),
+      teamPeople: z.array(
         z.object({
           name: z.string(),
           role: z.string(),

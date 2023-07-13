@@ -67,7 +67,11 @@
     "heading": "Cerita dari Bambangin",
     "subheading": "Keseharian kami selama melaksanakan KKN di Desa Bambangin"
   },
-  "team": [
+  "team": {
+    "heading": "Berkenalan dengan Tim yang Menakjubkan",
+    "subheading": "Kami adalah sekumpulan manusia yang memiliki tujuan yang sama untuk memberikan kebermanfaatan."
+  },
+  "teamPeople": [
     "muhammad-huda-inayaturrahman",
     "m-zakiyuddin-munziri",
     "ahmad-riduan",

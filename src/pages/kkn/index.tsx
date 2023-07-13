@@ -167,7 +167,11 @@ const Page: FC<Props> = ({ page, team, articles }) => {
           </div>
 
           {/* Team section */}
-          <Team team={page.team} />
+          <Team
+            heading={page.team.heading}
+            subheading={page.team.subheading}
+            team={page.teamPeople}
+          />
 
           {/* Content section */}
           <div className="mx-auto max-w-7xl px-6 mt-14 lg:px-8 ">
