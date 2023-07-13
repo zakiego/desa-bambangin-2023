@@ -49,14 +49,6 @@ export const keystaticRouter = createTRPCRouter({
   }),
 
   kkn: createTRPCRouter({
-    team: publicProcedure.query(async () => {
-      const data = await keystaticReader.singletons.kknTeam.readOrThrow();
-
-      const parsed = keystaticSchema.kkn.team.parse(data);
-
-      return parsed;
-    }),
-
     page: publicProcedure.query(async () => {
       const data = await keystaticReader.singletons.kknPage.readOrThrow();
 

@@ -29,7 +29,6 @@ const blogPosts = [
 ];
 
 export const getStaticProps = async () => {
-  const team = await trpcSSR.keystatic.kkn.team();
   const page = await trpcSSR.keystatic.kkn.page();
   const articles = await trpcSSR.keystatic.kkn.articles.pagination({
     page: 1,
@@ -38,7 +37,6 @@ export const getStaticProps = async () => {
 
   return {
     props: {
-      team,
       page,
       articles,
     },
@@ -46,12 +44,11 @@ export const getStaticProps = async () => {
 };
 
 type Props = {
-  team: TRPCTypeOutput["keystatic"]["kkn"]["team"];
   page: TRPCTypeOutput["keystatic"]["kkn"]["page"];
   articles: TRPCTypeOutput["keystatic"]["kkn"]["articles"]["pagination"];
 };
 
-const Page: FC<Props> = ({ page, team, articles }) => {
+const Page: FC<Props> = ({ page, articles }) => {
   return (
     <ContainerContent title="KKN Sosiologi Kelompok 9 | Desa Bambangin">
       <div className="bg-white">

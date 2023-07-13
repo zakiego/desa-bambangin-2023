@@ -69,59 +69,6 @@ export default keystaticConfig({
         ),
       },
     }),
-    kknTeam: singleton({
-      label: "KKN Team",
-      format: "json",
-      path: "src/content/kkn-team/",
-      schema: {
-        heading: fields.text({
-          label: "Heading",
-          // validation: validationTextNoEmpty,
-        }),
-        subheading: fields.text({
-          label: "Subheading",
-          // validation: validationTextNoEmpty,
-        }),
-        people: fields.array(
-          fields.object({
-            name: fields.text({
-              label: "Name",
-            }),
-            role: fields.text({
-              label: "Role",
-            }),
-            image: fields.image({
-              label: "Image",
-              directory: "public/images/content/kkn-team",
-              publicPath: "/images/content/kkn-team",
-              validation: {
-                isRequired: true,
-              },
-            }),
-            bio: fields.text({
-              label: "Bio",
-              multiline: true,
-            }),
-            instagram: fields.text({
-              label: "Instagram",
-              description: "Instagram username without @",
-            }),
-            twitter: fields.text({
-              label: "Twitter",
-              description: "Twitter username without @",
-            }),
-            linkedin: fields.text({
-              label: "Linkedin",
-              description: "Linkedin username without @",
-            }),
-          }),
-          {
-            label: "Content",
-            itemLabel: (props) => props.fields.name.value as string,
-          },
-        ),
-      },
-    }),
     kknPage: singleton({
       label: "KKN Page",
       format: "json",
