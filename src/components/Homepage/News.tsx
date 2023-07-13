@@ -1,5 +1,9 @@
+import { ArrowRightIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
+import Link from "next/link";
 import { type FC } from "react";
+
+import { Button } from "~/src/components/UI/Button";
 
 interface Props {
   data: Array<{
@@ -14,12 +18,14 @@ interface Props {
 
 export const News: FC<Props> = ({ data }) => {
   return (
-    <div className="bg-white py-24 sm:py-32">
+    <div className="bg-white py-12 sm:py-20">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            Berita Terbaru
-          </h2>
+          <Link href="/berita">
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              Berita Terbaru
+            </h2>
+          </Link>
           <p className="mt-2 text-lg leading-8 text-gray-600">
             Seputar kegiatan dan perkembangan dari Desa Bambangin
           </p>
@@ -82,6 +88,14 @@ export const News: FC<Props> = ({ data }) => {
               </div>
             </article>
           ))}
+        </div>
+        <div className="mt-5 mx-auto flex justify-center">
+          <Link href="/berita">
+            <Button intent="primary">
+              Lihat Semua Berita
+              <ArrowRightIcon className="w-4 h-4 ml-2" />
+            </Button>
+          </Link>
         </div>
       </div>
     </div>

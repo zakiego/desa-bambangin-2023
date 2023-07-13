@@ -13,7 +13,7 @@ interface Props {
 
 export const Profile: FC<Props> = ({ title, content }) => {
   return (
-    <div className="bg-white px-6 py-32 lg:px-8">
+    <div className="bg-white px-6 py-28 lg:px-8">
       <div className="mx-auto max-w-3xl text-base leading-7 text-gray-700 ">
         <div className="prose">
           <p className="text-base font-semibold leading-7 text-indigo-600">
