@@ -2,20 +2,25 @@ import {
   collection,
   config as keystaticConfig,
   fields,
+  type GitHubConfig,
+  type LocalConfig,
   singleton,
 } from "@keystatic/core";
 import { v4 as uuidv4 } from "uuid";
 
-const validationTextNoEmpty = {
-  length: {
-    min: 3,
-  },
-};
+const storage: LocalConfig["storage"] | GitHubConfig["storage"] =
+  process.env.NODE_ENV === "development"
+    ? { kind: "local" }
+    : {
+        kind: "github",
+        repo: {
+          owner: "zakiego",
+          name: "desa-bambangin-2023",
+        },
+      };
 
 export default keystaticConfig({
-  storage: {
-    kind: "local",
-  },
+  storage,
   singletons: {
     homepage: singleton({
       label: "Homepage",
