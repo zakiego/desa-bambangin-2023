@@ -1,9 +1,7 @@
-import { type InferGetStaticPropsType } from "next";
-
 import { Hero, News, Profile } from "~/src/components/Homepage";
 import { ContainerContent } from "~/src/components/Layout";
 import { Footer, Navbar } from "~/src/components/UI";
-import { trpcSSR } from "~/src/server/api/root";
+import { trpcSSR, type TRPCTypeOutput } from "~/src/server/api/root";
 
 export const getStaticProps = async () => {
   const homepage = await trpcSSR.keystatic.homepage();
@@ -15,14 +13,19 @@ export const getStaticProps = async () => {
   return {
     props: {
       homepage,
-
       hightlights,
       profil,
     },
   };
 };
 
-const Page = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
+type Props = {
+  homepage: TRPCTypeOutput["keystatic"]["homepage"];
+  hightlights: TRPCTypeOutput["keystatic"]["highlights"];
+  profil: TRPCTypeOutput["keystatic"]["pages"];
+};
+
+const Page = (props: Props) => {
   return (
     <main>
       <Navbar />
