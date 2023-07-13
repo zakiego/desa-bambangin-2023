@@ -72,6 +72,79 @@ export const keystaticRouter = createTRPCRouter({
 
       return parsed;
     }),
+
+    articles: createTRPCRouter({
+      getAllSlug: publicProcedure.query(async () => {
+        const list = await keystaticReader.collections.kknArticles.list();
+
+        const schema = z.array(z.string());
+
+        const data = schema.parse(list);
+
+        return data;
+      }),
+
+      getDetail: publicProcedure
+        .input(
+          z.object({
+            slug: z.string(),
+          }),
+        )
+        .query(async ({ input }) => {
+          const { slug } = input;
+
+          const raw = await keystaticReader.collections.kknArticles.read(slug);
+
+          const render = {
+            ...raw,
+            content: await raw?.content(),
+            slug,
+          };
+
+          const data = keystaticSchema.berita.parse(render);
+
+          return data;
+        }),
+
+      pagination: publicProcedure
+        .input(
+          z.object({
+            page: z.number(),
+            limit: z.number(),
+          }),
+        )
+        .query(async ({ input }) => {
+          const { page, limit } = input;
+
+          const raw = await keystaticReader.collections.kknArticles.all();
+
+          const render = raw.map(async (item) => {
+            return {
+              ...item.entry,
+              content: await item.entry.content(),
+              slug: item.slug,
+            };
+          });
+
+          const waited = await Promise.all(render);
+
+          const data = z.array(keystaticSchema.berita).parse(waited);
+
+          const paging = {
+            hasNext: page < Math.ceil(data.length / limit),
+            hasPrevious: page > 1,
+            totalData: data.length,
+            totalPage: Math.ceil(data.length / limit),
+            currentPage: page,
+            limit,
+          };
+
+          return {
+            paging: paging,
+            data: data.slice((page - 1) * limit, page * limit),
+          };
+        }),
+    }),
   }),
 
   pages: publicProcedure

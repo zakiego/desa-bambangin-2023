@@ -305,5 +305,54 @@ export default keystaticConfig({
         }),
       },
     }),
+    kknArticles: collection({
+      label: "KKN Articles",
+      path: "src/content/kkn-articles/*/",
+      format: "json",
+      slugField: "title",
+      schema: {
+        title: fields.slug({
+          name: {
+            label: "Title",
+          },
+        }),
+        image: fields.image({
+          label: "Image",
+          directory: "public/images/content/kkn-articles",
+          publicPath: "/images/content/kkn-articles",
+          validation: {
+            isRequired: true,
+          },
+        }),
+        datePublished: fields.date({
+          label: "Date Published",
+          validation: {
+            isRequired: true,
+          },
+        }),
+        summary: fields.text({
+          label: "Summary",
+          multiline: true,
+          validation: {
+            length: {
+              min: 1,
+            },
+          },
+        }),
+        content: fields.document({
+          label: "Content",
+          formatting: true,
+          links: true,
+          images: {
+            directory: "public/images/content/kkn-articles",
+            publicPath: "/images/content/kkn-articles",
+          },
+        }),
+        id: fields.text({
+          label: "ID",
+          defaultValue: uuidv4(),
+        }),
+      },
+    }),
   },
 });
