@@ -44,6 +44,8 @@ const Page = (props: Props) => {
       <SimpleLayout
         meta={{
           title: `${props.berita.title} | Cerita KKN Sosiologi Kelompok 9`,
+          description: props.berita.summary,
+          image: props.berita.image,
         }}
         article={{
           title: props.berita.title,

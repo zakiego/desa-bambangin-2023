@@ -13,6 +13,8 @@ import { formatDateKeystatic } from "~/src/utils/date";
 interface Props {
   meta: {
     title: string;
+    description?: string;
+    image?: string;
   };
   breadcrumb: BreadCrumbProps["breadcrumb"];
   article: {
@@ -33,7 +35,16 @@ export const SimpleLayout: FC<Props> = ({
   article: { title, image, date, content, author },
 }) => {
   return (
-    <ContainerContent className="bg-white py-24" title={meta.title} styles>
+    <ContainerContent
+      className="bg-white py-24"
+      title={meta.title}
+      meta={{
+        title: meta.title,
+        description: meta.description,
+        image: meta.image,
+      }}
+      styles
+    >
       <div className="mx-auto max-w-3xl text-base leading-7 text-gray-700">
         <BreadCrumb breadcrumb={breadcrumb} />
 
