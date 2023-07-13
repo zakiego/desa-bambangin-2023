@@ -45,6 +45,10 @@ export const keystaticSchema = {
           value: z.string(),
         }),
       ),
+      blog: z.object({
+        heading: z.string(),
+        subheading: z.string(),
+      }),
     }),
     article: z.object({
       title: z.string(),

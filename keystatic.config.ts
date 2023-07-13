@@ -203,6 +203,14 @@ export default keystaticConfig({
             itemLabel: (props) => props.fields.label.value as string,
           },
         ),
+        blog: fields.object({
+          heading: fields.text({
+            label: "Blog Heading",
+          }),
+          subheading: fields.text({
+            label: "Blog Subheading",
+          }),
+        }),
       },
     }),
   },
