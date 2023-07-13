@@ -362,5 +362,45 @@ export default keystaticConfig({
         }),
       },
     }),
+    kknTeam: collection({
+      label: "KKN Team",
+      path: "src/content/kkn-team/*/",
+      format: "json",
+      slugField: "name",
+      schema: {
+        name: fields.slug({
+          name: {
+            label: "Name",
+          },
+        }),
+        role: fields.text({
+          label: "Role",
+        }),
+        image: fields.image({
+          label: "Image",
+          directory: "public/images/content/kkn-team",
+          publicPath: "/images/content/kkn-team",
+          validation: {
+            isRequired: true,
+          },
+        }),
+        bio: fields.text({
+          label: "Bio",
+          multiline: true,
+        }),
+        instagram: fields.text({
+          label: "Instagram",
+          description: "Instagram username without @",
+        }),
+        twitter: fields.text({
+          label: "Twitter",
+          description: "Twitter username without @",
+        }),
+        linkedin: fields.text({
+          label: "Linkedin",
+          description: "Linkedin username without @",
+        }),
+      },
+    }),
   },
 });
