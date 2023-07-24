@@ -6,3 +6,7 @@ export const formatDateKeystatic = (date: string) => {
     locale: id,
   });
 };
+
+export const parseDateKeystatic = (date: string) => {
+  return parse(date, "yyyy-MM-dd", new Date());
+};

@@ -2,6 +2,7 @@ import { z } from "zod";
 
 import { keystaticSchema } from "~/src/lib/schema";
 import { createTRPCRouter, publicProcedure } from "~/src/server/api/trpc";
+import { parseDateKeystatic } from "~/src/utils/date";
 import { keystaticReader } from "~/src/utils/reader";
 
 export const keystaticRouter = createTRPCRouter({
@@ -120,10 +121,11 @@ export const keystaticRouter = createTRPCRouter({
           z.object({
             page: z.number(),
             limit: z.number(),
+            sort: z.enum(["asc", "desc"]).default("desc"),
           }),
         )
         .query(async ({ input }) => {
-          const { page, limit } = input;
+          const { page, limit, sort } = input;
 
           const raw = await keystaticReader.collections.kknArticles.all();
 
@@ -144,6 +146,17 @@ export const keystaticRouter = createTRPCRouter({
 
           const data = z.array(keystaticSchema.kkn.article).parse(waited);
 
+          const sorted = data.sort((a, b) => {
+            const dateA = parseDateKeystatic(a.datePublished);
+            const dateB = parseDateKeystatic(b.datePublished);
+
+            if (sort === "asc") {
+              return dateA.getTime() - dateB.getTime();
+            } else {
+              return dateB.getTime() - dateA.getTime();
+            }
+          });
+
           const paging = {
             hasNext: page < Math.ceil(data.length / limit),
             hasPrevious: page > 1,
@@ -155,7 +168,7 @@ export const keystaticRouter = createTRPCRouter({
 
           return {
             paging: paging,
-            data: data.slice((page - 1) * limit, page * limit),
+            data: sorted.slice((page - 1) * limit, page * limit),
           };
         }),
     }),
