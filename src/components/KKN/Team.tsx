@@ -13,7 +13,7 @@ interface Props {
 
 export const Team: FC<Props> = ({ heading, subheading, team }) => {
   return (
-    <div className="mx-auto max-w-7xl px-6 sm:mt-0 lg:px-8 ">
+    <div id="tim" className="mx-auto max-w-7xl px-6 sm:mt-0 lg:px-8 ">
       <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
         <div className="max-w-3xl xl:col-span-2">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">

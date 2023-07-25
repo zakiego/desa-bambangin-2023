@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { DocumentRenderer } from "@keystatic/core/renderer";
-import { type FC } from "react";
+import { useRouter } from "next/router";
+import { type FC, useEffect } from "react";
 import Balancer from "react-wrap-balancer";
 
 import { Team } from "~/src/components/KKN";
@@ -29,6 +30,29 @@ type Props = {
 };
 
 const Page: FC<Props> = ({ page, articles }) => {
+  const router = useRouter();
+
+  useEffect(() => {
+    const elementId = router.asPath.split("#")[1];
+
+    const handleRouteChangeComplete = () => {
+      if (elementId) {
+        const element = document.getElementById(elementId);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    };
+
+    // Listen for the routeChangeComplete event to wait until the page has loaded
+    router.events.on("routeChangeComplete", handleRouteChangeComplete);
+
+    // Clean up the event listener when the component is unmounted
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChangeComplete);
+    };
+  }, [router.asPath]);
+
   return (
     <ContainerContent title="KKN Sosiologi Kelompok 9 | Desa Bambangin">
       <div className="bg-white">
@@ -151,7 +175,7 @@ const Page: FC<Props> = ({ page, articles }) => {
           />
 
           {/* Content section */}
-          <div className="mx-auto max-w-7xl px-6 mt-14 lg:px-8 ">
+          <div id="misi" className="mx-auto max-w-7xl px-6 mt-14 lg:px-8 ">
             <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
               <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                 {page.mission.heading}
@@ -196,7 +220,10 @@ const Page: FC<Props> = ({ page, articles }) => {
           </div>
 
           {/* Values section */}
-          <div className="mb-20 mx-auto mt-32 max-w-7xl px-6 sm:mt-40 lg:px-8">
+          <div
+            id="nilai"
+            className="mb-20 mx-auto mt-32 max-w-7xl px-6 sm:mt-40 lg:px-8"
+          >
             <div className="mx-auto max-w-2xl lg:mx-0">
               <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                 {page.values.heading}
@@ -216,7 +243,10 @@ const Page: FC<Props> = ({ page, articles }) => {
           </div>
 
           {/* Blog section */}
-          <div className="mx-auto my-32 max-w-7xl px-6 sm:my-40 lg:px-8">
+          <div
+            id="cerita"
+            className="mx-auto my-32 max-w-7xl px-6 sm:my-40 lg:px-8"
+          >
             <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
               <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                 {page.blog.heading}
