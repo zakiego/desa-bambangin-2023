@@ -8,6 +8,7 @@ export const keystaticSchema = {
       people: z.array(
         z.object({
           name: z.string(),
+          shortName: z.string(),
           role: z.string(),
           image: z.string(),
           instagram: z.string().nullish(),
@@ -86,6 +87,31 @@ export const keystaticSchema = {
         name: z.string(),
         image: z.string(),
       }),
+    }),
+    awards: z.object({
+      hero: z.object({
+        heading: z.string(),
+        subheading: z.string(),
+      }),
+      award: z.object({
+        heading: z.string(),
+        subheading: z.string(),
+      }),
+      awards: z.array(
+        z.object({
+          title: z.string(),
+          people: z.object({
+            name: z.string(),
+            shortName: z.string(),
+            role: z.string(),
+            image: z.string(),
+            instagram: z.string().nullish(),
+            twitter: z.string().nullish(),
+            linkedin: z.string().nullish(),
+            bio: z.string(),
+          }),
+        }),
+      ),
     }),
   },
 

@@ -172,6 +172,30 @@ export const keystaticRouter = createTRPCRouter({
           };
         }),
     }),
+
+    awards: publicProcedure.query(async () => {
+      const raw = await keystaticReader.singletons.kknAward.read();
+
+      const people = await keystaticReader.collections.kknTeam.all();
+
+      const render = {
+        ...raw,
+        awards: raw?.awards.map((item) => {
+          const peopleData = people.find(
+            (people) => people.slug === item.people,
+          );
+
+          return {
+            ...item,
+            people: peopleData?.entry,
+          };
+        }),
+      };
+
+      const parsed = keystaticSchema.kkn.awards.parse(render);
+
+      return parsed;
+    }),
   }),
 
   pages: publicProcedure

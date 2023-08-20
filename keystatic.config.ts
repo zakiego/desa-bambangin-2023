@@ -180,6 +180,47 @@ export default keystaticConfig({
         ),
       },
     }),
+    kknAward: singleton({
+      label: "KKN Award",
+      format: "json",
+      path: "src/content/kkn-award/",
+      schema: {
+        hero: fields.object({
+          heading: fields.text({
+            label: "Hero Heading",
+          }),
+          subheading: fields.text({
+            label: "Hero Subheading",
+            multiline: true,
+          }),
+        }),
+        award: fields.object({
+          heading: fields.text({
+            label: "Award Heading",
+          }),
+          subheading: fields.text({
+            label: "Award Subheading",
+            multiline: true,
+          }),
+        }),
+
+        awards: fields.array(
+          fields.object({
+            title: fields.text({
+              label: "Title",
+            }),
+            people: fields.relationship({
+              label: "People",
+              collection: "kknTeam",
+            }),
+          }),
+          {
+            label: "Awards",
+            itemLabel: (props) => props.fields.title.value as string,
+          },
+        ),
+      },
+    }),
   },
   collections: {
     berita: collection({
@@ -343,6 +384,9 @@ export default keystaticConfig({
           name: {
             label: "Name",
           },
+        }),
+        shortName: fields.text({
+          label: "Short Name",
         }),
         role: fields.text({
           label: "Role",

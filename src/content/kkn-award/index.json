@@ -1,0 +1,24 @@
+{
+  "hero": {
+    "heading": "KKN Bambangin Award 🥳",
+    "subheading": "Apreasi untuk seluruh anggota tim yang luar biasa!"
+  },
+  "award": {
+    "heading": "Pemenang 🎉",
+    "subheading": "Barisan pemenang di setiap kategori yang mengagumkan."
+  },
+  "awards": [
+    {
+      "title": "Mandi Paling Sebentar",
+      "people": "m-zakiyuddin-munziri"
+    },
+    {
+      "title": "Proker Paling Cepat",
+      "people": "siti-noor-ariani"
+    },
+    {
+      "title": "Proker Paling Lelet",
+      "people": "m-zakiyuddin-munziri"
+    }
+  ]
+}
