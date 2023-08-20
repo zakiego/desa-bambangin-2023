@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { DocumentRenderer } from "@keystatic/core/renderer";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { type FC, useEffect } from "react";
 import Balancer from "react-wrap-balancer";
@@ -107,6 +108,21 @@ const Page: FC<Props> = ({ page, articles }) => {
               <div className="mx-auto max-w-7xl px-6 pb-32 pt-36 sm:pt-60 lg:px-8 lg:pt-32">
                 <div className="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
                   <div className="w-full max-w-xl lg:shrink-0 xl:max-w-2xl">
+                    <div className="hidden sm:mb-10 sm:flex">
+                      <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-500 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
+                        KKN Bambangin Award 🥳{" "}
+                        <Link
+                          href="/kkn/award"
+                          className="whitespace-nowrap font-semibold text-indigo-600"
+                        >
+                          <span
+                            className="absolute inset-0"
+                            aria-hidden="true"
+                          />
+                          Lihat di sini <span aria-hidden="true">&rarr;</span>
+                        </Link>
+                      </div>
+                    </div>
                     <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
                       <Balancer>{page.hero.heading}</Balancer>
                     </h1>
