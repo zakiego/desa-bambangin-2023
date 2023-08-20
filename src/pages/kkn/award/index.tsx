@@ -23,7 +23,7 @@ type Props = {
 
 const Page: FC<Props> = ({ awards }) => {
   return (
-    <ContainerContent title="KKN Sosiologi Kelompok 9 | Desa Bambangin">
+    <ContainerContent title="Award KKN Sosiologi Kelompok 9 | Desa Bambangin">
       <div>
         <Navbar />
 
